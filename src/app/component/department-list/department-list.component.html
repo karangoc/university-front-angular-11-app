@@ -1,0 +1,40 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/department-list']">Departments</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Index</li>
+        </ol>
+    </nav>
+
+
+    <div class="table-responsive">
+        <table class="table table bordered">
+            <thead>
+                <tr>
+                    <td>DepartmentID</td>
+                    <td>Name</td>
+                    <td>Budget</td>
+                    <td>StartDate</td>
+                    <td>InstructorID</td>
+                    <td><a [routerLink]="[ '/department-create']">Create</a></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let department of departments">
+                    <td>{{ department.DepartmentID }}</td>
+                    <td>{{ department.Name }}</td>
+                    <td>{{ department.Budget }}</td>
+                    <td>{{ department.StartDate }}</td>
+                    <td>{{ department.InstructorID }}</td>
+                    <td>
+                        <!-- <a [routerLink]="[ '/department-detail', department.DepartmentID ]">Details</a> --> <br />
+                        <a [routerLink]="[ '/department-edit', department.DepartmentID ]">Edit</a> <br/>
+                        <a [routerLink]="[ '/department-delete', department.DepartmentID ]">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

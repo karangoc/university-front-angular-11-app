@@ -1,0 +1,12 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/student-list']">Students</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Detail</li>
+        </ol>
+    </nav>
+
+    <label>Full Name: {{ student.FullName }}</label><br />
+    <label>Enrollment: {{ student.EnrollmentDate }}</label><br />
+</div>

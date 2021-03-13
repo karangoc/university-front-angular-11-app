@@ -1,0 +1,40 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/instructor-list']">Instructors</a></li>
+            <li class="breadcrumb-item active" aria-current="page">OfficeAssignments</li>
+        </ol>
+    </nav>
+
+    <div class="form-row" *ngIf="showMsg">
+        <div class="alert alert-{{ type }} col-md-12" role="alert">
+            {{ msg }}
+        </div>
+    </div>
+
+    <label>Full Name: {{ instructor.FullName }}</label><br />
+    <label>Hire Date: {{ instructor.HireDate }}</label><br />
+
+    <div class="form-row">
+        <div class="col-md-6">
+
+            <label>Location: </label> <br>
+            <label *ngIf="ifOfficeAssignmentsExist"> {{officeAssignment.Location}}
+            </label>
+            <br />
+            <div *ngIf="!ifOfficeAssignmentsExist">
+                <input type="text" id="Location" name="Location" placeholder="Enther the Location" class="form-control"
+                    #Location [(ngModel)]="officeAssignment.Location" />
+
+                <br>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-outline-primary" (click)="createOfficeAssignment()">Create</button>
+                        <a class="btn btn-outline-primary" [routerLink]="['/instructor-list']">Back</a>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

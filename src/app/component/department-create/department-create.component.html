@@ -1,0 +1,54 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/department-list']">Departments</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Create</li>
+        </ol>
+    </nav>
+
+    <h2>Create Department</h2>
+
+    <div class="form-row" *ngIf="showMsg">
+        <div class="alert alert-{{ type }} col-md-12" role="alert">
+            {{ msg }}
+        </div>
+    </div>
+
+    <form #departmentForm="ngForm">
+
+        <div class="form-row">
+            <div class="col-md-4">
+                <label>Name:</label>
+                <input type="text" id="Name" name="Name" placeholder="Enther the Name" class="form-control" #Name
+                    [(ngModel)]="department.Name" />
+            </div>
+            <div class="col-md-4">
+                <label>Budget:</label>
+                <input type="text" id="Budget" name="Budget" placeholder="Enther the Budget" class="form-control"
+                    #Budget [(ngModel)]="department.Budget" />
+            </div>
+            <div class="col-md-4">
+                <label>StartDate:</label>
+                <input type="date" id="StartDate" name="StartDate" placeholder="Enther the StartDate"
+                    class="form-control" #StartDate [(ngModel)]="department.StartDate" autocomplete="off" />
+            </div>
+            <div class="col-md-4">
+                <label>InstructorID:</label>
+                <select class="form-control" id="InstructorID" name="InstructorID" placeholder="Enther the InstructorID"
+                    #InstructorID [(ngModel)]="department.InstructorID">
+                    <option *ngFor="let instructor of instructors" [value]="instructor.ID">
+                        {{ instructor.FullName }}
+                    </option>
+                </select>
+            </div>
+
+        </div>
+        <br>
+        <div class="btn-group" role="group">
+            <button class="btn btn-outline-primary" (click)="save()">Save</button>
+            <a class="btn btn-outline-primary" [routerLink]="['/department-list']">Back</a>
+        </div>
+    </form>
+
+</div>

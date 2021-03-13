@@ -1,0 +1,33 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/course-list']">Courses</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Index</li>
+        </ol>
+    </nav>
+
+    <div class="table-responsive">
+        <table class="table table bordered">
+            <thead>
+                <tr>
+                    <td>CourseID</td>
+                    <td>Title</td>
+                    <td>Credits</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let course of courses">
+                    <td>{{ course.CourseID }}</td>
+                    <td>{{ course.Title }}</td>
+                    <td>{{ course.Credits }}</td>
+                    <td>
+                        <a [routerLink]="[ '/course-detail', course.CourseID ]">Details</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

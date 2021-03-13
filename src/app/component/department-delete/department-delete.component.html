@@ -1,0 +1,72 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/department-delete']">Departments</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Delete</li>
+        </ol>
+    </nav>
+
+    <h2>Delete Department</h2>
+
+    <div class="form-row" *ngIf="showMsg">
+        <div class="alert alert-{{ type }} col-md-12" role="alert">
+            {{ msg }}
+        </div>
+    </div>
+
+    <form #departmentForm="ngForm" *ngIf="department">
+
+        <div class="form-row">
+            <div class="col-md-4">
+                <label>Name:</label>
+                <input
+                  type="text"
+                  id="Name"
+                  name="Name"
+                  placeholder="Enther the Name"
+                  class="form-control"
+                  #Name
+                  [(ngModel)]="department.Name" 
+                />
+            </div>
+            <div class="col-md-4">
+                <label>Budget:</label>
+                <input
+                  type="text"
+                  id="Budget"
+                  name="Budget"
+                  placeholder="Enther the Budget"
+                  class="form-control"
+                  #Budget
+                  [(ngModel)]="department.Budget"
+                />
+            </div>
+            <div class="col-md-4">
+                <label>StartDate:</label>
+                <input
+                  type="date"
+                  id="StartDate"
+                  name="StartDate"
+                  placeholder="Enther the StartDate"
+                  class="form-control"
+                  #StartDate
+                  [(ngModel)]="department.StartDate"
+                  autocomplete="off"
+                />
+            </div>
+        </div> 
+        <br>
+
+        <div class="alert alert-danger col-md-12" role="alert">
+            Are You Sure?
+            <br>
+        <div class="btn-group" role="group">
+            <button class="btn btn-outline-danger" (click)="delete()">Delete</button>
+            <a class="btn btn-outline-danger" [routerLink]="['/department-list']">Back</a>
+        </div>
+    </div>
+    </form>
+
+</div>
+

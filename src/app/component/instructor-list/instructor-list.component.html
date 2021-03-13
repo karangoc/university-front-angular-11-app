@@ -1,0 +1,39 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/instructor-list']">Instructors</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Index</li>
+        </ol>
+    </nav>
+
+    <div class="table-responsive">
+        <table class="table table bordered">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>LastName</td>
+                    <td>FirstMidName</td>
+                    <td>HireDate</td>
+                    <td>FullName</td>
+                    <td><a [routerLink]="[ '/instructor-create']">Create</a></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let instructor of instructors">
+                    <td>{{ instructor.ID }}</td>
+                    <td>{{ instructor.LastName }}</td>
+                    <td>{{ instructor.FirstMidName }}</td>
+                    <td>{{ instructor.HireDate }}</td>
+                    <td>{{ instructor.FullName }}</td>
+                    <td>
+                        <a [routerLink]="[ '/instructor-detail', instructor.ID ]">Details</a> <br/>
+                        <a [routerLink]="[ '/instructor-edit', instructor.ID ]">Edit</a> <br/>
+                        <a [routerLink]="[ '/instructor-delete', instructor.ID ]">Delete</a> <br/>
+                        <a [routerLink]="[ '/instructor-officeassignments-list', instructor.ID ]">OfficeAssignments</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

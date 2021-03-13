@@ -1,0 +1,67 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/student-list']">Students</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit</li>
+        </ol>
+    </nav>
+
+    <h2>Edit Student</h2>
+
+    <div class="form-row" *ngIf="showMsg">
+        <div class="alert alert-{{ type }} col-md-12" role="alert">
+          {{ msg }}
+        </div>
+      </div>
+
+    <form #studentForm="ngForm" *ngIf="student">
+
+        <div class="form-row">
+            <div class="col-md-4">
+                <label>LastName:</label>
+                <input
+                  type="text"
+                  id="LastName"
+                  name="LastName"
+                  placeholder="Enther the LastName"
+                  class="form-control"
+                  #LastName
+                  [(ngModel)]="student.LastName" 
+                />
+            </div>
+            <div class="col-md-4">
+                <label>FirstMidName:</label>
+                <input
+                  type="text"
+                  id="FirstMidName"
+                  name="FirstMidName"
+                  placeholder="Enther the FirstMidName"
+                  class="form-control"
+                  #FirstMidName
+                  [(ngModel)]="student.FirstMidName"
+                />
+            </div>
+            <div class="col-md-4">
+                <label>EnrollmentDate:</label>
+                <input
+                  type="date"
+                  id="EnrollmentDate"
+                  name="EnrollmentDate"
+                  placeholder="Enther the EnrollmentDate"
+                  class="form-control"
+                  #EnrollmentDate
+                  [(ngModel)]="student.EnrollmentDate"
+                  autocomplete="off"
+                />
+            </div>
+        </div> 
+        <br>
+        <div class="btn-group" role="group">
+            <button class="btn btn-outline-primary" (click)="edit()">Edit</button>
+            <a class="btn btn-outline-primary" [routerLink]="['/student-list']">Back</a>
+        </div>
+    </form>
+
+</div>
+
